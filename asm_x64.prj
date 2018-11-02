@@ -514,6 +514,8 @@ String[] ins_data = {
 &quot;\\1903&amp;\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;133&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=(\\1703)&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;(\\1703)=\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;137&quot;,&quot;0&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1903=(\\1703)&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;(\\1703)=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;137&quot;,&quot;0&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2103=(\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;11&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;(\\1703)=\\2103&quot;,&quot;0&quot;,&quot;2&quot;,&quot;137&quot;,&quot;0&quot;,&quot;3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;11&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2303=(\\1703)&quot;,&quot;0&quot;,&quot;3&quot;,&quot;102&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
