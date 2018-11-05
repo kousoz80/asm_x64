@@ -6,7 +6,7 @@
 <y0>0</y0>
 <width>200</width>
 <height>100</height>
-<ID_maker>37</ID_maker>
+<ID_maker>39</ID_maker>
 <objectname>asm_x64</objectname>
 <description>新規のアプリケーション</description>
 <プロパティ>
@@ -338,14 +338,13 @@ int main( int argc, char** argv ){
     long  p_align   = 0x1000;   // このセグメントのメモリのアライメント
    }
 
-   ELF64(  long end_prog, long end_mem  ){
+   ELF64(  long end_mem  ){
 
 //System.out.println(&quot;new elf64&quot;);
 
      eheader = new e_header();
      pheader = new p_header();
-     pheader.p_filesz = end_prog;
-     pheader.p_memsz = end_mem;
+     pheader.p_filesz = pheader.p_memsz = end_mem;
    }
 
   public void write( OutputStream out ){
@@ -420,28 +419,28 @@ public void next_ins(){
 <height>35</height>
 <codetext> // 命令定義データ
 String[] ins_data = {
-&quot;org \\0632&quot;,&quot;1&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;org \\0664&quot;,&quot;1&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;equ \\0664&quot;,&quot;2&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;memory \\0232&quot;,&quot;3&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;align \\0632&quot;,&quot;4&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;byte \\0708&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;8&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;short \\0616&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;16&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;int \\0632&quot;,&quot;0&quot;,&quot;4&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;memory \\0264&quot;,&quot;3&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;align \\0664&quot;,&quot;4&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;byte \\0664&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;8&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;short \\0664&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;16&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;int \\0664&quot;,&quot;0&quot;,&quot;4&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;long \\0664&quot;,&quot;0&quot;,&quot;8&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;64&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;syscall&quot;,&quot;0&quot;,&quot;2&quot;,&quot;15&quot;,&quot;5&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jmp (\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;224&quot;,&quot;3&quot;,&quot;12&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jmp \\0432&quot;,&quot;0&quot;,&quot;5&quot;,&quot;233&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;call (\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;208&quot;,&quot;3&quot;,&quot;12&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;call \\0432&quot;,&quot;0&quot;,&quot;5&quot;,&quot;232&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jmp (\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;224&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jmp \\0464&quot;,&quot;0&quot;,&quot;5&quot;,&quot;233&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;call (\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;208&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;call \\0464&quot;,&quot;0&quot;,&quot;5&quot;,&quot;232&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;ret&quot;,&quot;0&quot;,&quot;1&quot;,&quot;195&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jc \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;130&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jnc \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;131&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jz \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;132&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jnz \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;133&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jlt \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;140&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jle \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;142&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jgt \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;143&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;jge \\0432&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;141&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jc \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;130&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jnc \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;131&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jz \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;132&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jnz \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;133&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jlt \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;140&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jle \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;142&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jgt \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;143&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jge \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;141&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;shl \\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;209&quot;,&quot;224&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;shl \\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;209&quot;,&quot;224&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;shr \\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;209&quot;,&quot;232&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -472,10 +471,10 @@ String[] ins_data = {
 &quot;exg \\1703,rax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1903&quot;,&quot;0&quot;,&quot;2&quot;,&quot;73&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg \\1903,rax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;73&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;exg \\1703,\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;11&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;exg \\1903,\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;77&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;11&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;exg \\1703,\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;11&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;exg \\1903,\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;11&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;exg \\1703,\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;exg \\1903,\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;77&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;exg \\1703,\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;exg \\1903,\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;135&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703+=\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;1&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903+=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;77&quot;,&quot;1&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703+=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;1&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -526,7 +525,8 @@ String[] ins_data = {
 &quot;\\1903=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;77&quot;,&quot;137&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;137&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903=\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;137&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;\\1703=&amp;\\0732&quot;,&quot;0&quot;,&quot;8&quot;,&quot;72&quot;,&quot;141&quot;,&quot;4&quot;,&quot;37&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=&amp;\\0664(rip)&quot;,&quot;0&quot;,&quot;7&quot;,&quot;72&quot;,&quot;141&quot;,&quot;5&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=&amp;\\0664&quot;,&quot;0&quot;,&quot;8&quot;,&quot;72&quot;,&quot;141&quot;,&quot;4&quot;,&quot;37&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=\\0664&quot;,&quot;0&quot;,&quot;10&quot;,&quot;72&quot;,&quot;184&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;8&quot;,&quot;64&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903=\\0664&quot;,&quot;0&quot;,&quot;10&quot;,&quot;73&quot;,&quot;184&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;8&quot;,&quot;64&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;umul \\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;247&quot;,&quot;224&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -582,10 +582,10 @@ public int read_int(){
 </codeclip>
 <codeclip>
 <ID>_C17</ID>
-<x0>518</x0>
-<y0>241</y0>
-<width>384</width>
-<height>310</height>
+<x0>515</x0>
+<y0>233</y0>
+<width>392</width>
+<height>338</height>
 <codetext>// 変数
  static final long FAULT = 0x7fffffffffffffffL;
  static final int NONE   = -1;
@@ -594,6 +594,7 @@ public int read_int(){
  static final int EQU      = 2;
  static final int MEMORY = 3;
  static final int ALIGN    = 4;
+ static final int MAX_WORD = 10; // 最大語長
 
   int[] ins = new int[16];  // 配列の１要素は1バイトに対応
   int  line = 0, ins_type = 0;
@@ -605,7 +606,7 @@ public int read_int(){
   String input_file = null;
   String output_file = &quot;a.out&quot;;
   long boffset = 0L; //ブランチオフセット
-</codetext>
+  boolean blist = false; // リスト表示モード</codetext>
 </codeclip>
 <codeclip>
 <ID>_C16</ID>
@@ -741,7 +742,7 @@ public void bit_copy( long src, int[] dst, int pos, int width ){
 public int asm_1line( String xbuf, int pass ){
   long value;
 
-//System.out.println(&quot;asm 1 line&quot;);
+//System.out.println(&quot;\nasm 1 line&quot;);
 
   line++;
   ins_type = NONE;
@@ -775,7 +776,7 @@ public int asm_1line( String xbuf, int pass ){
     for( i = 0; i &lt; buf.length() &amp;&amp; buf.charAt(i) != &apos; &apos; &amp;&amp; buf.charAt(i) != &apos;:&apos;; i++) ;
     label = buf.substring(0,i);
     
-// System.out.println(&quot;label=&quot;+label);   
+// System.out.print(&quot;label=&quot;+label+&quot;, &quot;); print_hex(address,8,&quot;:\n&quot;);
     
     buf = buf.substring(i);
   }
@@ -796,7 +797,7 @@ public int asm_1line( String xbuf, int pass ){
     ins_type = read_int();
     word_length = read_int();
     
-// System.out.println(&quot;ret=&quot;+ref+&quot;, ins_typ=&quot;+ins_type+&quot;, word_length=&quot;+word_length);   
+// System.out.println(&quot;ref : &quot;+ref+&quot;, ins_typ=&quot;+ins_type+&quot;, word_length=&quot;+word_length);   
     
     
     /* 命令コードのよみこみ */
@@ -857,26 +858,39 @@ public int asm_1line( String xbuf, int pass ){
         
           op   = &apos;+&apos;;
 
-          if( arg_typ &lt; 4) value = location;  // 現在のロケーションをオフセットとする数値
-          else if( arg_typ &lt; 6 ) value = boffset - location + word_length; // 相対アドレッシング用 4:符号つき / 5:符号なし
+          if( arg_typ &lt; 4) value = 0L;  // 現在のロケーションをオフセットとする数値
+          else if( arg_typ &lt; 6 ) value = boffset - location - word_length; // 相対アドレッシング用 4:符号つき / 5:符号なし
           else value = 0L;  // 通常の数値 6:符号つき数値 / 7:符号なし
 
           while( op != &apos;\0&apos; ){
 
-            /* &apos;+&apos;, &apos;-&apos; 演算子を探す */
-            for( i = 0; i &lt; arg.length() &amp;&amp; ( op2 = arg.charAt(i) ) != &apos;+&apos; &amp;&amp; op2 != &apos;-&apos; ; i++ ) ;
+//System.out.println(&quot;arg=&quot;+arg);        
+
+            /* 演算子を探す */
+            for( i = 0; i &lt; arg.length() &amp;&amp; (!is_operater( op2 = arg.charAt(i) )); i++ ) { /* System.out.print(&quot;+&quot;); */}
             if( i &gt;= arg.length()) op2 = &apos;\0&apos;;
+
+//System.out.println(&quot;op=\&apos;&quot;+op2+&quot;\&apos;&quot;);        
+
             term_val = 0L;
             term = arg.substring(0,i);
             if( i+1 &gt;= arg.length() ) arg = &quot;&quot;; else  arg = arg.substring(i+1);
             if( term.length() == 0){ 
-              if( op2 == &apos;\0&apos; &amp;&amp;( op == &apos;+&apos; || op == &apos;-&apos; ) ){ // 最後が&apos;+&apos;か&apos;-&apos;で終わるようならエラー
+              if( op2 == &apos;\0&apos; &amp;&amp; is_operater( op ) ){ // 最後が演算子で終わるようならエラー
                 state = FAULT;
                 break;
               }
             }
             else{
+
+//System.out.println(&quot;term=&quot;+term);        
+
               switch( term.charAt(0) ){
+
+              /* 先頭に&apos;\&apos;&apos; があるときは続く1文字のアスキーコードとする*/
+              case &apos;\&apos;&apos;:
+                term_val = (long)term.charAt(1);
+                break;
 
               /* 先頭に&apos;0&apos; があるとき */
               case &apos;0&apos;:
@@ -908,6 +922,10 @@ public int asm_1line( String xbuf, int pass ){
               default:
                 if( term.equals(&quot;$&quot;)) term_val = location;
                 else if( (term_val = serch_label( term )) == FAULT &amp;&amp; pass == 2 ) { state = FAULT; break;}
+ 
+ //System.out.println(&quot;term=&quot;+term);
+ //System.out.print(&quot;term_val=&quot;+term_val+&quot; (0x&quot;);print_hex( term_val, 8, &quot;)\n&quot;);
+ 
                 break;
               }
               if( state == FAULT ) break;
@@ -915,11 +933,19 @@ public int asm_1line( String xbuf, int pass ){
 
             /* 演算処理 */
             switch( op ){
-            case &apos;+&apos;: value += term_val; break;
-            case &apos;-&apos;:  value -= term_val; break;
+              case &apos;+&apos;: value += term_val; break;
+              case &apos;-&apos;:  value -= term_val; break;
+              case &apos;*&apos;: value *= term_val; break;
+              case &apos;/&apos;:  value /= term_val; break;
             }
+
+//System.out.println(&quot;value=&quot;+value);
+
             op = op2;
           }
+
+//System.out.println(&quot;exit loop&quot;);
+
           if( state == FAULT ) break;
         }
 
@@ -933,7 +959,13 @@ public int asm_1line( String xbuf, int pass ){
           amin = -(1L&lt;&lt;(arg_wid-1));
           amax = (1L&lt;&lt;(arg_wid-1))-1L;
         }
-        if( value &lt; amin || value &gt; amax ){ state = FAULT; break;}
+        if( value &lt; amin || value &gt; amax ){
+
+//System.out.println(&quot;value is out of range\n&quot;);
+
+          state = FAULT;
+          break;
+        }
         operand[operand_p++] = value;
       }
 
@@ -957,38 +989,61 @@ public int asm_1line( String xbuf, int pass ){
     }
 
     /* 正常終了 */
+
+//System.out.println(&quot;match&quot;);
+
     if( st_pos &gt;= statement.length() ){
 
       /* 命令コードの生成 */
       for( i = 0; ( bit_width = read_int() ) &gt;= 0; i++ ){
         bit_pos = read_int();
+
+//System.out.println(&quot;bit copy&quot;);
+
         bit_copy( operand[i], ins, bit_pos, bit_width );
+
+//System.out.println(&quot;bit copy end&quot;);
+
       }
+
+
+//System.out.println(&quot;ins_type=&quot;+ins_type);
 
       switch( ins_type ){
 
       case NORMAL:
-        end_mem = end_prog = location += word_length;
+        address = prev_loc = location;
+        end_mem  = location += word_length;
         break;
 
       case ORG:
-      case MEMORY:
         prev_loc = location;
-        end_mem = location = operand[0];
+        address= end_mem = location = operand[0];
+        break;
+
+      case MEMORY:
+        address = prev_loc = location;
+        end_mem = location += operand[0];
         break;
 
       case ALIGN:
         prev_loc = location;
         location  = (location / operand[0])*operand[0];
         if( location &lt; prev_loc ) location += operand[0];
-        end_mem = location;
+        address = end_mem = location;
         break;
 
       case EQU:
         address = operand[0];
         break;
 
-      }        
+      }
+
+//print_hex(address,8,&quot;:\n&quot;);
+
+//System.out.println(&quot;end asm 1line&quot;);
+
+
       return 0;
     }
 
@@ -997,6 +1052,9 @@ public int asm_1line( String xbuf, int pass ){
   }
 
   /* エラー終了 */
+  
+//System.out.println(&quot;not match&quot;);
+
   word_length = 0;
   ins_type = NONE;
   return 1;
@@ -1039,10 +1097,11 @@ location = ELF64.start;
 File outfile = new File(output_file);
 BufferedReader din = new BufferedReader( new FileReader(input_file) );
 FileOutputStream out = new FileOutputStream(outfile);
+int len;
 
   // ヘッダを書き込む
   if( mode==0){ // ELF
-    elf64 = new ELF64( end_prog, end_mem);
+    elf64 = new ELF64( end_mem - 1 );
     elf64.write(out);
   }
   else if( mode==1){  // 独自形式
@@ -1065,6 +1124,9 @@ FileOutputStream out = new FileOutputStream(outfile);
     line = 0;
     while( (buf = din.readLine()) != null ){
        err = asm_1line( buf, 2 );
+
+//System.out.println(&quot;asm err code=&quot;+err);
+
        switch(ins_type){
        case NONE:
          if( err != 0 ) System.out.println(&quot;line:&quot;+line+&quot; *** ERROR ***\n&quot;+buf);
@@ -1081,6 +1143,14 @@ FileOutputStream out = new FileOutputStream(outfile);
              out.write((byte)&apos; &apos;);
              out.write(ins[i]&amp;0xff);
            }
+         }
+         if( blist){
+           print_hex( location-word_length, 8, &quot;:&quot; );
+           for( int i = 0; i &lt; word_length; i++ ){
+             print_hex( (long)ins[i], 2, &quot; &quot; );
+           }
+           for( int i =MAX_WORD; i &gt;= word_length; i-- ) System.out.print(&quot;   &quot;);
+           System.out.println(buf);
          }
          break;
 
@@ -1099,12 +1169,18 @@ FileOutputStream out = new FileOutputStream(outfile);
            out.write((int)((location&gt;&gt;48)&amp;0xffL));
            out.write((int)((location&gt;&gt;56)&amp;0xffL));
          }
+         if( blist){
+           print_hex( location, 8, &quot;:\n&quot; );
+         }
          break;
 
        case MEMORY:
-       case ALIGN:
+         len = (int)(location - prev_loc); 
+
+//System.out.println(&quot;allocated memory size=&quot;+len);
+
          if( mode==0){ // ELF
-           for( long i = prev_loc; i &lt; location; i++ ){
+           for( int i = 0; i &lt; len; i++ ){
              out.write(0);
            }
          }
@@ -1119,10 +1195,40 @@ FileOutputStream out = new FileOutputStream(outfile);
            out.write((int)((location&gt;&gt;48)&amp;0xffL));
            out.write((int)((location&gt;&gt;56)&amp;0xffL));
          }
+         if( blist){
+           print_hex( prev_loc, 8, &quot;: alloc &quot; );System.out.println( len + &quot;bytes&quot;);
+         }
+         break;
+
+       case ALIGN:
+         len = (int)(location - prev_loc); 
+         if( mode==0){ // ELF
+           for( int i = 0; i &lt; len; i++ ){
+             out.write(0);
+           }
+         }
+         else if( mode==1){  // 独自形式
+           out.write((int)(byte)&apos;:&apos;);
+           out.write((int)(location&amp;0xff));
+           out.write((int)((location&gt;&gt;8)&amp;0xffL));
+           out.write((int)((location&gt;&gt;16)&amp;0xffL));
+           out.write((int)((location&gt;&gt;24)&amp;0xffL));
+           out.write((int)((location&gt;&gt;32)&amp;0xffL));
+           out.write((int)((location&gt;&gt;40)&amp;0xffL));
+           out.write((int)((location&gt;&gt;48)&amp;0xffL));
+           out.write((int)((location&gt;&gt;56)&amp;0xffL));
+         }
+         if( blist){
+           print_hex( location, 8, &quot;: skip &quot; );System.out.println( len + &quot;bytes&quot;);
+         }
          break;
       }
 
+//System.out.println(&quot;continue read line&quot;);
+
     }
+
+//System.out.println(&quot;end pass2&quot;);
 
     din.close();
     out.close();
@@ -1178,14 +1284,14 @@ BufferedReader din = new BufferedReader( new FileReader(infile) );
       asm_1line( buf, 1 );
       if( label != null ){
         if( serch_label( label ) == FAULT ){
-          create_label( label, address );
-           }
+           create_label( label, address );
+        }
         else{
-          System.out.println(&quot;line &quot;+line+&quot;:ラベルの多重定義\n&quot;);
-           }
+           System.out.println(&quot;line &quot;+line+&quot;:ラベルの多重定義\n&quot;);
         }
       }
-      din.close();
+    }
+    din.close();
 } catch( IOException ie ) {System.out.println(input_file+&quot;の読み取りエラー&quot;);}
 
 </codetext>
@@ -1355,6 +1461,12 @@ else{  // 引数の数が３より大きいときは４つ目以降の引数は�
      input_file = ARGS[1];
      output_file = ARGS[2];
   }
+  else if( ARGS[0].equals(&quot;-list&quot;)) {
+     mode = 0;
+     blist = true;
+     input_file = ARGS[1];
+     output_file = ARGS[2];
+  }
   else{
     input_file = ARGS[0];
     output_file = ARGS[1];
@@ -1394,6 +1506,37 @@ public void print_usage(){
 <codetext>/* 新しいラベルを生成する */
 public void create_label( String name, long value ){
   symbols.add( new xSymbol( name, &quot;LABEL&quot;, value ) );
+}
+</codetext>
+</codeclip>
+<codeclip>
+<ID>_C37</ID>
+<x0>361</x0>
+<y0>579</y0>
+<width>327</width>
+<height>37</height>
+<codetext>// 16進数を表示
+public void print_hex( long x, int wid, String tail ){
+   long e = 1L &lt;&lt; ((wid-1)*4);
+   while( wid &gt;= 1 ){
+     int d = (int)((x &amp; (e*15L)) / e);
+     System.out.print( &quot;0123456789abcdef&quot;.charAt(d)+&quot;&quot;);
+     e = e &gt;&gt; 4;
+     wid--;
+   }
+   System.out.print(tail);       
+}
+</codetext>
+</codeclip>
+<codeclip>
+<ID>_C38</ID>
+<x0>696</x0>
+<y0>578</y0>
+<width>248</width>
+<height>33</height>
+<codetext>// 演算子であるかどうか判断する
+public boolean is_operater( char c ){
+  return (c == &apos;+&apos;) || (c == &apos;-&apos;) || (c == &apos;*&apos;) || (c == &apos;/&apos;);
 }
 </codetext>
 </codeclip>
