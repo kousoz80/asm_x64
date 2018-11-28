@@ -6,7 +6,7 @@
 <y0>0</y0>
 <width>200</width>
 <height>100</height>
-<ID_maker>39</ID_maker>
+<ID_maker>40</ID_maker>
 <objectname>asm_x64</objectname>
 <description>新規のアプリケーション</description>
 <プロパティ>
@@ -17,9 +17,9 @@
 <MainWinWidth>1024</MainWinWidth>
 <MainWinHeight>740</MainWinHeight>
 <MesgWinx0>0</MesgWinx0>
-<MesgWiny0>566</MesgWiny0>
+<MesgWiny0>0</MesgWiny0>
 <MesgWinWidth>1024</MesgWinWidth>
-<MesgWinHeight>174</MesgWinHeight>
+<MesgWinHeight>745</MesgWinHeight>
 <FileWinx0>36</FileWinx0>
 <FileWiny0>478</FileWiny0>
 <FileWinWidth>578</FileWinWidth>
@@ -294,14 +294,14 @@ int main( int argc, char** argv ){
 <width>187</width>
 <height>52</height>
 <codetext>class ELF64{
-  e_header eheader;
-  p_header pheader;
-
   static final long origin =  0x08048000;
   static final long e_header_size = 64;
   static final long p_header_size = 56;
   static final long start = origin + e_header_size + p_header_size;
   long file_size = e_header_size + p_header_size; 
+
+  e_header eheader;
+  p_header pheader;
 
    // ELFヘッダ
   class e_header{
@@ -339,9 +339,6 @@ int main( int argc, char** argv ){
    }
 
    ELF64(  long end_mem  ){
-
-//System.out.println(&quot;new elf64&quot;);
-
      eheader = new e_header();
      pheader = new p_header();
      pheader.p_filesz = pheader.p_memsz = end_mem;
@@ -602,7 +599,7 @@ public int read_int(){
   long address =0, location = 0, prev_loc = 0;
   String source = null, label = null;
   int line_p, read_p;
-  int mode = 0; // 0:ELF , 1:独自形式
+  int mode = 0; // 0:ELF , 1:独自形式, 2:EFI形式
   String input_file = null;
   String output_file = &quot;a.out&quot;;
   long boffset = 0L; //ブランチオフセット
@@ -1093,7 +1090,10 @@ try{
 //System.out.println(&quot;pass2&quot;);
 
 ELF64 elf64;
-location = ELF64.start;
+EFI64  efi64;
+
+  if( mode==0) location = ELF64.start;  else if( mode==2) location = EFI64.start;
+
 File outfile = new File(output_file);
 BufferedReader din = new BufferedReader( new FileReader(input_file) );
 FileOutputStream out = new FileOutputStream(outfile);
@@ -1103,6 +1103,10 @@ int len;
   if( mode==0){ // ELF
     elf64 = new ELF64( end_mem - 1 );
     elf64.write(out);
+  }
+  else if( mode==2){ // EFI
+    efi64 = new EFI64( end_mem );
+    efi64.write(out);
   }
   else if( mode==1){  // 独自形式
     out.write((int)(byte)&apos;:&apos;);
@@ -1133,7 +1137,7 @@ int len;
          break;
 
        case NORMAL:
-         if( mode==0){ // ELF
+         if( mode==0||mode==2){ // ELF,EFI
            for( int i = 0; i &lt; word_length; i++ ){
              out.write(ins[i]&amp;0xff);
            }
@@ -1155,7 +1159,7 @@ int len;
          break;
 
        case ORG:
-         if( mode==0){ // ELF
+         if( mode==0|| mode==2){ // ELF,EFI
            System.out.println(&quot;line:&quot;+line+&quot; このモードではorg命令は使用できません\n&quot;+buf);
          }
          else if( mode==1){  // 独自形式
@@ -1179,7 +1183,7 @@ int len;
 
 //System.out.println(&quot;allocated memory size=&quot;+len);
 
-         if( mode==0){ // ELF
+         if( mode==0|| mode==2){ // ELF,EFI
            for( int i = 0; i &lt; len; i++ ){
              out.write(0);
            }
@@ -1202,7 +1206,7 @@ int len;
 
        case ALIGN:
          len = (int)(location - prev_loc); 
-         if( mode==0){ // ELF
+         if( mode==0||mode==2){ // ELF,EFI
            for( int i = 0; i &lt; len; i++ ){
              out.write(0);
            }
@@ -1229,6 +1233,13 @@ int len;
     }
 
 //System.out.println(&quot;end pass2&quot;);
+
+   // EFIの場合ファイルアライメントを整合させないとエラーになるので対処する
+   if( mode==2){
+     for( long i = location; i % (long)EFI64.falign != 0L; i++ ){
+       out.write(0);
+     }
+   }
 
     din.close();
     out.close();
@@ -1268,13 +1279,10 @@ int len;
 symbols = new Vector();
 set_symbols(regs);
 
-//System.out.println(&quot;input=&quot;+input_file);
-//System.out.println(&quot;output=&quot;+output_file);
 
 try{
-//System.out.println(&quot;pass1&quot;);
-
-location = ELF64.start;
+  if( mode==0) location = ELF64.start;
+  else if( mode==2) location = EFI64.start;
 File infile = new File(input_file);
 if( !infile.exists() || !infile.isFile() )  print_usage();
 BufferedReader din = new BufferedReader( new FileReader(infile) );
@@ -1388,9 +1396,9 @@ public void set_symbols( String[] syms ){
 <ID>_C28</ID>
 <x0>75</x0>
 <y0>10</y0>
-<width>299</width>
-<height>22</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ</codetext>
+<width>345</width>
+<height>25</height>
+<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.1</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
@@ -1439,6 +1447,14 @@ else if( ARGS.length == 2 ){
      mode = 0;
      input_file = ARGS[1];
   }
+  else if( ARGS[0].equals(&quot;-efi&quot;)){
+     mode = 2;
+     input_file = ARGS[1];
+  }
+  else if( ARGS[0].equals(&quot;-efi64&quot;)) {
+     mode = 2;
+     input_file = ARGS[1];
+  }
   else{
     input_file = ARGS[0];
     output_file = ARGS[1];
@@ -1458,6 +1474,16 @@ else{  // 引数の数が３より大きいときは４つ目以降の引数は�
   }
   else if( ARGS[0].equals(&quot;-elf64&quot;)) {
      mode = 0;
+     input_file = ARGS[1];
+     output_file = ARGS[2];
+  }
+  else if( ARGS[0].equals(&quot;-efi&quot;)) {
+     mode = 2;
+     input_file = ARGS[1];
+     output_file = ARGS[2];
+  }
+  else if( ARGS[0].equals(&quot;-efi64&quot;)) {
+     mode = 2;
      input_file = ARGS[1];
      output_file = ARGS[2];
   }
@@ -1537,6 +1563,145 @@ public void print_hex( long x, int wid, String tail ){
 <codetext>// 演算子であるかどうか判断する
 public boolean is_operater( char c ){
   return (c == &apos;+&apos;) || (c == &apos;-&apos;) || (c == &apos;*&apos;) || (c == &apos;/&apos;);
+}
+</codetext>
+</codeclip>
+<codeclip>
+<ID>_C39</ID>
+<x0>785</x0>
+<y0>10</y0>
+<width>187</width>
+<height>52</height>
+<codetext>class EFI64{
+  static final long origin = 0x400000;
+  static final long start  = 0x401000;
+  static final int falign = 0x200;
+  static final int salign = 0x1000;
+  static final int p_code_size = 0x0190;  // コードサイズ
+  static final int p_code_sec_size0 = 0x0198; // コードセクションのサイズ
+  static final int p_code_sec_size1 = 0x009c;  // コードサイズ
+  static final int p_image_size = 0x00d0; // ヘッダサイズにコードセクションのサイズを足したもの
+  static final int code_location = 0x400;    // プログラムの先頭位置
+  static final int p_code_location = 0x019c; // プログラムの先頭位置
+
+// EFI(PE32+)ヘッダ
+int[] header = {
+0x5a4d, 0x0090, 0x0003, 0x0000, 0x0004, 0x0000, 0xffff, 0x0000,        // 0
+0x00b8, 0x0000, 0x0000, 0x0000, 0x0040, 0x0000, 0x0000, 0x0000,        // 10
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 20
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0080, 0x0000,        // 30
+0x1f0e, 0x0eba, 0xb400, 0xcd09, 0xb821, 0x4c01, 0x21cd, 0x6854,        // 40
+0x7369, 0x7020, 0x6f72, 0x7267, 0x6d61, 0x6320, 0x6e61, 0x6f6e,        // 50
+0x2074, 0x6562, 0x7220, 0x6e75, 0x6920, 0x206e, 0x4f44, 0x2053,        // 60
+0x6f6d, 0x6564, 0x0d2e, 0x0a0d, 0x0024, 0x0000, 0x0000, 0x0000,        // 70
+0x4550, 0x0000, 0x8664, 0x0001, 0x1ad0, 0x597f, 0x0000, 0x0000,        // 80
+0x0000, 0x0000, 0x00f0, 0x0227, 0x020b, 0x1902, 0x0200, 0x0000,        // 90
+0x0000, 0x0000, 0x0000, 0x0000, 0x1000, 0x0000, 0x1000, 0x0000,        // a0
+0x0000, 0x0040, 0x0000, 0x0000, 0x1000, 0x0000, 0x0200, 0x0000,        // b0
+0x0004, 0x0000, 0x0000, 0x0000, 0x0005, 0x0002, 0x0000, 0x0000,        // c0
+0x6000, 0x0000, 0x0400, 0x0000, 0x0000, 0x0000, 0x000a, 0x0000,        // d0
+0x0000, 0x0020, 0x0000, 0x0000, 0x1000, 0x0000, 0x0000, 0x0000,        // e0
+0x0000, 0x0010, 0x0000, 0x0000, 0x1000, 0x0000, 0x0000, 0x0000,        // f0
+0x0000, 0x0000, 0x0010, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 100
+0x5000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 110
+0x3000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 120
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 130
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 140
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 150
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 160
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 170
+0x0000, 0x0000, 0x0000, 0x0000, 0x742e, 0x7865, 0x0074, 0x0000,        // 180
+0x0070, 0x0000, 0x1000, 0x0000, 0x0200, 0x0000, 0x0400, 0x0000,        // 190
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0020, 0xe050,        // 1a0
+0x722e, 0x6164, 0x6174, 0x0000, 0x0040, 0x0000, 0x2000, 0x0000,        // 1b0
+0x0200, 0x0000, 0x0600, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 1c0
+0x0000, 0x0000, 0x0040, 0x4050, 0x702e, 0x6164, 0x6174, 0x0000,        // 1d0
+0x000c, 0x0000, 0x3000, 0x0000, 0x0200, 0x0000, 0x0800, 0x0000,        // 1e0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0040, 0x4030,        // 1f0
+0x782e, 0x6164, 0x6174, 0x0000, 0x000c, 0x0000, 0x4000, 0x0000,        // 200
+0x0200, 0x0000, 0x0a00, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 210
+0x0000, 0x0000, 0x0040, 0x4030, 0x692e, 0x6164, 0x6174, 0x0000,        // 220
+0x0014, 0x0000, 0x5000, 0x0000, 0x0200, 0x0000, 0x0c00, 0x0000,        // 230
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0040, 0xc030,        // 240
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 250
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 260
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 270
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 280
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 290
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 2a0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 2b0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 2c0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 2d0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 2e0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 2f0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 300
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 310
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 320
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 330
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 340
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 350
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 360
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 370
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 380
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 390
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 3a0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 3b0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 3c0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 3d0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,        // 3e0
+0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000        // 3f0
+};
+
+
+
+  EFI64(  long end_mem  ){
+    int code_size = (int)(end_mem - start);
+    int code_sec_size = code_size / falign * falign + ((code_size % falign!=0)? falign : 0);  
+    int image_size = salign + code_sec_size / salign * salign + ((code_sec_size % salign!=0)? salign : 0);  //イメージサイズはヘッダ用に1ページ余分にとっておく
+
+//System.out.println(&quot;code_sec_size=&quot;+code_sec_size+&quot;,image_size=&quot;+image_size);
+
+    put_int( p_code_size, code_size );
+    put_int( p_code_sec_size0, code_sec_size );
+    put_int( p_code_sec_size1, code_sec_size );
+    put_int( p_image_size, image_size );
+    put_int( p_code_location, code_location );
+
+  }
+
+
+  public void write( OutputStream out ){
+     try{
+       for(int i = 0; i &lt; header.length; i++ ){
+         int d0 = header[i] &amp; 0xff;
+         int d1 = (header[i] &gt;&gt; 8) &amp; 0xff;
+         out.write(d0);
+         out.write(d1);
+      }
+    } catch(IOException e){e.printStackTrace();}
+  }
+
+
+  public void put_short( int address, short value ){
+    int ad = address / 2;
+    header[ad] = (int)value;
+  }
+
+
+  public void put_int( int address, int value ){
+    int ad = address / 2;
+    header[ad] = value &amp; 0xffff;
+    header[ad+1] = (value&gt;&gt;16) &amp; 0xffff;
+  }
+
+  public void put_long( int address, long value ){
+    int ad = address / 2;
+    header[ad] = (int)(value &amp; 0xffffL);
+    header[ad+1] = (int)((value&gt;&gt;16) &amp; 0xffffL);
+    header[ad+2] = (int)((value&gt;&gt;32) &amp; 0xffffL);
+    header[ad+3] = (int)((value&gt;&gt;48) &amp; 0xffffL);
+  }
+
 }
 </codetext>
 </codeclip>
