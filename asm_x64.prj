@@ -1402,7 +1402,7 @@ public void set_symbols( String[] syms ){
 <y0>10</y0>
 <width>345</width>
 <height>25</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.1</codetext>
+<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.1.1</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
