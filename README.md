@@ -216,6 +216,16 @@ udiv レジスタ
 
 
 
+ext al
+  
+ext ax
+  
+ext eax
+  
+・・・al、ax、eaxレジスタを64ビット幅(rax)にゼロ拡張する
+
+
+
 in al,(dx)
 
 in ax,(dx)

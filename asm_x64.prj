@@ -461,9 +461,15 @@ String[] ins_data = {
 &quot;pop \\1703&quot;,&quot;0&quot;,&quot;1&quot;,&quot;88&quot;,&quot;3&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;pop \\1903&quot;,&quot;0&quot;,&quot;2&quot;,&quot;65&quot;,&quot;88&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703++&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;255&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;\\1903++&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;209&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1903++&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;255&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2103++&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;192&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2303++&quot;,&quot;0&quot;,&quot;3&quot;,&quot;102&quot;,&quot;255&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2503++&quot;,&quot;0&quot;,&quot;2&quot;,&quot;254&quot;,&quot;192&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703--&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;255&quot;,&quot;200&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;\\1903--&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;209&quot;,&quot;200&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1903--&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;255&quot;,&quot;200&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2103--&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;200&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2303--&quot;,&quot;0&quot;,&quot;3&quot;,&quot;102&quot;,&quot;255&quot;,&quot;200&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2503--&quot;,&quot;0&quot;,&quot;2&quot;,&quot;254&quot;,&quot;200&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1703&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg \\1703,rax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1903&quot;,&quot;0&quot;,&quot;2&quot;,&quot;73&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -508,12 +514,16 @@ String[] ins_data = {
 &quot;\\1903&amp;\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;77&quot;,&quot;133&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703&amp;\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;133&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903&amp;\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;133&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=\\0632(rsp)&quot;,&quot;0&quot;,&quot;8&quot;,&quot;72&quot;,&quot;139&quot;,&quot;132&quot;,&quot;36&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=\\0632(\\1703)&quot;,&quot;0&quot;,&quot;7&quot;,&quot;72&quot;,&quot;139&quot;,&quot;128&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;24&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=(\\1703)&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\0632(rsp)=\\1703&quot;,&quot;0&quot;,&quot;8&quot;,&quot;72&quot;,&quot;137&quot;,&quot;132&quot;,&quot;36&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;32&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\0632(\\1703)=\\1703&quot;,&quot;0&quot;,&quot;7&quot;,&quot;72&quot;,&quot;137&quot;,&quot;128&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;24&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;(\\1703)=\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;137&quot;,&quot;0&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1903=\\0632(rsp)&quot;,&quot;0&quot;,&quot;8&quot;,&quot;76&quot;,&quot;139&quot;,&quot;132&quot;,&quot;36&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903=\\0632(\\1703)&quot;,&quot;0&quot;,&quot;7&quot;,&quot;76&quot;,&quot;139&quot;,&quot;128&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;32&quot;,&quot;24&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903=(\\1703)&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;19&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\0632(rsp)=\\1903&quot;,&quot;0&quot;,&quot;8&quot;,&quot;76&quot;,&quot;137&quot;,&quot;132&quot;,&quot;36&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;32&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\0632(\\1703)=\\1903&quot;,&quot;0&quot;,&quot;7&quot;,&quot;76&quot;,&quot;137&quot;,&quot;128&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;24&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;(\\1703)=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;137&quot;,&quot;0&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2103=(\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;139&quot;,&quot;0&quot;,&quot;3&quot;,&quot;11&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -544,6 +554,9 @@ String[] ins_data = {
 &quot;out (dx),al&quot;,&quot;0&quot;,&quot;1&quot;,&quot;238&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;out (dx),ax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;102&quot;,&quot;239&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;out (dx),eax&quot;,&quot;0&quot;,&quot;1&quot;,&quot;239&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;ext al&quot;,&quot;0&quot;,&quot;4&quot;,&quot;72&quot;,&quot;15&quot;,&quot;182&quot;,&quot;192&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;ext ax&quot;,&quot;0&quot;,&quot;4&quot;,&quot;72&quot;,&quot;15&quot;,&quot;183&quot;,&quot;192&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;ext eax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;152&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;nop&quot;,&quot;0&quot;,&quot;1&quot;,&quot;144&quot;,&quot;-1&quot;,&quot;END&quot;
 };
 </codetext>
@@ -1402,7 +1415,7 @@ public void set_symbols( String[] syms ){
 <y0>10</y0>
 <width>345</width>
 <height>25</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.1.1</codetext>
+<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.1.2</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
