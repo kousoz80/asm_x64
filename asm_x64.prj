@@ -267,6 +267,12 @@ int main( int argc, char** argv ){
 </ProgramStartupCode6>
 <NativeHelpCommand6></NativeHelpCommand6>
 <scale>3</scale>
+<CompileCommand7></CompileCommand7>
+<RunCommand7></RunCommand7>
+<GUIDesignerCommand7></GUIDesignerCommand7>
+<ImportFiles7></ImportFiles7>
+<ProgramStartupCode7></ProgramStartupCode7>
+<NativeHelpCommand7></NativeHelpCommand7>
 </プロパティ>
 <codeclip>
 <ID>_CSTART</ID>
@@ -416,6 +422,8 @@ public void next_ins(){
 String[] ins_data = {
 &quot;org \\0664&quot;,&quot;1&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;equ \\0664&quot;,&quot;2&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;= \\0664&quot;,&quot;2&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;+= \\0664&quot;,&quot;5&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;memory \\0264&quot;,&quot;3&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;align \\0664&quot;,&quot;4&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;byte \\0664&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;8&quot;,&quot;0&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -596,8 +604,8 @@ public int read_int(){
 <ID>_C17</ID>
 <x0>597</x0>
 <y0>155</y0>
-<width>385</width>
-<height>425</height>
+<width>392</width>
+<height>421</height>
 <codetext>// 変数
  static final long FAULT = 0x7fffffffffffffffL;
  static final int NONE   = -1;
@@ -606,12 +614,14 @@ public int read_int(){
  static final int EQU      = 2;
  static final int MEMORY = 3;
  static final int ALIGN    = 4;
+ static final int EQUPP   = 5;
  static final int MAX_WORD = 10; // 最大語長
 
   int[] ins = new int[16];  // 配列の１要素は1バイトに対応
   int  line = 0, ins_type = 0;
   long  word_length = 0L, end_prog, end_mem; 
   long address =0, location = 0, prev_loc = 0;
+  long last_equ = 0;
   String source = null, label = null;
   int line_p, read_p;
   int mode = 0; // 0:ELF , 1:独自形式, 2:EFI形式
@@ -1053,7 +1063,12 @@ public int asm_1line( String xbuf, int pass ){
         break;
 
       case EQU:
-        address = operand[0];
+        last_equ = address = operand[0];
+        break;
+
+      case EQUPP:
+        address = last_equ;
+        last_equ += operand[0];
         break;
 
       }
@@ -1342,7 +1357,8 @@ BufferedReader din = new BufferedReader( new FileReader(infile) );
            create_label( label, address );
         }
         else{
-           System.out.println(&quot;line &quot;+line+&quot;:ラベルの多重定義\n&quot;);
+           System.out.println(&quot;line &quot;+line+&quot;:ラベルの多重定義&quot;);
+           System.out.println(buf+&quot;\n&quot;);
         }
       }
     }
@@ -1445,7 +1461,7 @@ public void set_symbols( String[] syms ){
 <y0>10</y0>
 <width>345</width>
 <height>25</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.1.3</codetext>
+<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.2</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
