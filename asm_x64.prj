@@ -444,6 +444,10 @@ String[] ins_data = {
 &quot;jle \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;142&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;jgt \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;143&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;jge \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;141&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;ja \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;135&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jae \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;131&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jb \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;130&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;jbe \\0464&quot;,&quot;0&quot;,&quot;6&quot;,&quot;15&quot;,&quot;134&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;32&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;shl \\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;209&quot;,&quot;224&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;shl \\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;73&quot;,&quot;209&quot;,&quot;224&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;shr \\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;209&quot;,&quot;232&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -476,6 +480,14 @@ String[] ins_data = {
 &quot;\\2103--&quot;,&quot;0&quot;,&quot;2&quot;,&quot;255&quot;,&quot;200&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2303--&quot;,&quot;0&quot;,&quot;3&quot;,&quot;102&quot;,&quot;255&quot;,&quot;200&quot;,&quot;3&quot;,&quot;16&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2503--&quot;,&quot;0&quot;,&quot;2&quot;,&quot;254&quot;,&quot;200&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703.+=\\2703&quot;,&quot;0&quot;,&quot;4&quot;,&quot;242&quot;,&quot;15&quot;,&quot;88&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703.-=\\2703&quot;,&quot;0&quot;,&quot;4&quot;,&quot;242&quot;,&quot;15&quot;,&quot;92&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703.*=\\2703&quot;,&quot;0&quot;,&quot;4&quot;,&quot;242&quot;,&quot;15&quot;,&quot;89&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703./=\\2703&quot;,&quot;0&quot;,&quot;4&quot;,&quot;242&quot;,&quot;15&quot;,&quot;94&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703=sqrt(\\2703)&quot;,&quot;0&quot;,&quot;4&quot;,&quot;242&quot;,&quot;15&quot;,&quot;81&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703.-\\2703&quot;,&quot;0&quot;,&quot;4&quot;,&quot;102&quot;,&quot;15&quot;,&quot;47&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703=(double)\\1703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;242&quot;,&quot;72&quot;,&quot;15&quot;,&quot;42&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=(long)\\2703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;242&quot;,&quot;72&quot;,&quot;15&quot;,&quot;44&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1703&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg \\1703,rax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1903&quot;,&quot;0&quot;,&quot;2&quot;,&quot;73&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -538,6 +550,8 @@ String[] ins_data = {
 &quot;(\\1703)=\\2303&quot;,&quot;0&quot;,&quot;3&quot;,&quot;102&quot;,&quot;137&quot;,&quot;0&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2503=(\\1703)&quot;,&quot;0&quot;,&quot;2&quot;,&quot;138&quot;,&quot;0&quot;,&quot;3&quot;,&quot;11&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;(\\1703)=\\2503&quot;,&quot;0&quot;,&quot;2&quot;,&quot;136&quot;,&quot;0&quot;,&quot;3&quot;,&quot;8&quot;,&quot;3&quot;,&quot;11&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\2703=\\1703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;102&quot;,&quot;72&quot;,&quot;15&quot;,&quot;110&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=\\2703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;102&quot;,&quot;72&quot;,&quot;15&quot;,&quot;126&quot;,&quot;192&quot;,&quot;3&quot;,&quot;32&quot;,&quot;3&quot;,&quot;35&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=\\1703&quot;,&quot;0&quot;,&quot;3&quot;,&quot;72&quot;,&quot;137&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1903=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;77&quot;,&quot;137&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\1703=\\1903&quot;,&quot;0&quot;,&quot;3&quot;,&quot;76&quot;,&quot;137&quot;,&quot;192&quot;,&quot;3&quot;,&quot;16&quot;,&quot;3&quot;,&quot;19&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -921,7 +935,20 @@ public int asm_1line( String xbuf, int pass ){
                 term_val = (long)term.charAt(1);
                 break;
 
-              /* 先頭に&apos;0&apos; があるとき */
+              /* 先頭に&apos;^&apos; があるときはプラスの浮動小数点数として処理する */
+              case &apos;^&apos;:              /* 先頭に&apos;^&apos; があるとき */
+              try{
+                 term_val = Double.doubleToLongBits(Double.valueOf(term.substring(1)).doubleValue());
+               } catch(Exception e){ term_val = 0L; }
+               break;
+
+              /* 先頭に&apos;~&apos; があるときはマイナスの浮動小数点数として処理する */
+              case &apos;~&apos;:              /* 先頭に&apos;^&apos; があるとき */
+              try{
+                 term_val = Double.doubleToLongBits(Double.valueOf(&quot;-&quot;+term.substring(1)).doubleValue());
+               } catch(Exception e){ term_val = 0L; }
+               break;
+
               case &apos;0&apos;:
                 if( term.length() == 1 ) term_val =0L;
                 else{
@@ -1426,7 +1453,15 @@ String regs[] = {
  &quot;al&quot;,&quot;25&quot;,&quot;0&quot;,
  &quot;cl&quot;,&quot;25&quot;,&quot;1&quot;,
  &quot;dl&quot;,&quot;25&quot;,&quot;2&quot;,
- &quot;bl&quot;,&quot;25&quot;,&quot;3&quot;
+ &quot;bl&quot;,&quot;25&quot;,&quot;3&quot;,
+ &quot;xmm0&quot;,&quot;27&quot;,&quot;0&quot;,
+ &quot;xmm1&quot;,&quot;27&quot;,&quot;1&quot;,
+ &quot;xmm2&quot;,&quot;27&quot;,&quot;2&quot;,
+ &quot;xmm3&quot;,&quot;27&quot;,&quot;3&quot;,
+ &quot;xmm4&quot;,&quot;27&quot;,&quot;4&quot;,
+ &quot;xmm5&quot;,&quot;27&quot;,&quot;5&quot;,
+ &quot;xmm6&quot;,&quot;27&quot;,&quot;6&quot;,
+ &quot;xmm7&quot;,&quot;27&quot;,&quot;7&quot;,
 };
 </codetext>
 </codeclip>
@@ -1461,7 +1496,7 @@ public void set_symbols( String[] syms ){
 <y0>10</y0>
 <width>345</width>
 <height>25</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.2</codetext>
+<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.3</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
