@@ -277,7 +277,7 @@ int main( int argc, char** argv ){
 <codeclip>
 <ID>_CSTART</ID>
 <x0>333</x0>
-<y0>211</y0>
+<y0>219</y0>
 <width>123</width>
 <height>22</height>
 <codetext> String[] ARGS;
@@ -286,7 +286,7 @@ int main( int argc, char** argv ){
 <pin>
 <ID>_PSTART</ID>
 <x0>17</x0>
-<y0>176</y0>
+<y0>184</y0>
 <width>55</width>
 <height>24</height>
 <text>Start()</text>
@@ -296,7 +296,7 @@ int main( int argc, char** argv ){
 <codeclip>
 <ID>_C0</ID>
 <x0>590</x0>
-<y0>9</y0>
+<y0>17</y0>
 <width>187</width>
 <height>52</height>
 <codetext>class ELF64{
@@ -393,7 +393,7 @@ int main( int argc, char** argv ){
 <codeclip>
 <ID>_C22</ID>
 <x0>332</x0>
-<y0>235</y0>
+<y0>243</y0>
 <width>163</width>
 <height>40</height>
 <codetext>// デバッグ用変数
@@ -403,7 +403,7 @@ boolean debug=false;
 <codeclip>
 <ID>_C21</ID>
 <x0>817</x0>
-<y0>64</y0>
+<y0>72</y0>
 <width>151</width>
 <height>35</height>
 <codetext>// 次の命令に移る
@@ -415,7 +415,7 @@ public void next_ins(){
 <codeclip>
 <ID>_C20</ID>
 <x0>331</x0>
-<y0>314</y0>
+<y0>322</y0>
 <width>157</width>
 <height>35</height>
 <codetext> // 命令定義データ
@@ -487,7 +487,8 @@ String[] ins_data = {
 &quot;\\2703=sqrt(\\2703)&quot;,&quot;0&quot;,&quot;4&quot;,&quot;242&quot;,&quot;15&quot;,&quot;81&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2703.-\\2703&quot;,&quot;0&quot;,&quot;4&quot;,&quot;102&quot;,&quot;15&quot;,&quot;47&quot;,&quot;192&quot;,&quot;3&quot;,&quot;27&quot;,&quot;3&quot;,&quot;24&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;\\2703=(double)\\1703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;242&quot;,&quot;72&quot;,&quot;15&quot;,&quot;42&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
-&quot;\\1703=(long)\\2703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;242&quot;,&quot;72&quot;,&quot;15&quot;,&quot;44&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=(_long)\\2703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;242&quot;,&quot;72&quot;,&quot;15&quot;,&quot;44&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;\\1703=(long)\\2703&quot;,&quot;0&quot;,&quot;5&quot;,&quot;242&quot;,&quot;72&quot;,&quot;15&quot;,&quot;45&quot;,&quot;192&quot;,&quot;3&quot;,&quot;35&quot;,&quot;3&quot;,&quot;32&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1703&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg \\1703,rax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;exg rax,\\1903&quot;,&quot;0&quot;,&quot;2&quot;,&quot;73&quot;,&quot;144&quot;,&quot;3&quot;,&quot;8&quot;,&quot;-1&quot;,&quot;END&quot;,
@@ -584,7 +585,7 @@ String[] ins_data = {
 <codeclip>
 <ID>_C19</ID>
 <x0>61</x0>
-<y0>209</y0>
+<y0>217</y0>
 <width>262</width>
 <height>213</height>
 <codetext>// シンボル
@@ -605,7 +606,7 @@ class xSymbol{
 <codeclip>
 <ID>_C18</ID>
 <x0>767</x0>
-<y0>104</y0>
+<y0>112</y0>
 <width>164</width>
 <height>38</height>
 <codetext>/* データを読み込む */
@@ -617,7 +618,7 @@ public int read_int(){
 <codeclip>
 <ID>_C17</ID>
 <x0>597</x0>
-<y0>155</y0>
+<y0>163</y0>
 <width>392</width>
 <height>421</height>
 <codetext>// 変数
@@ -653,8 +654,8 @@ public int read_int(){
 </codeclip>
 <codeclip>
 <ID>_C16</ID>
-<x0>73</x0>
-<y0>113</y0>
+<x0>76</x0>
+<y0>125</y0>
 <width>267</width>
 <height>35</height>
 <codetext>/* 基数にしたがって文字列を整数に変換する */
@@ -691,7 +692,7 @@ public long xatol( String str, int r ){
 <codeclip>
 <ID>_C15</ID>
 <x0>591</x0>
-<y0>103</y0>
+<y0>111</y0>
 <width>164</width>
 <height>38</height>
 <codetext>/* データを読み込む */
@@ -703,7 +704,7 @@ public String read(){
 <codeclip>
 <ID>_C14</ID>
 <x0>591</x0>
-<y0>65</y0>
+<y0>73</y0>
 <width>224</width>
 <height>35</height>
 <codetext>/* データの読み込み位置を設定する */
@@ -717,7 +718,7 @@ public void restore(){
 <codeclip>
 <ID>_C13</ID>
 <x0>59</x0>
-<y0>540</y0>
+<y0>548</y0>
 <width>357</width>
 <height>37</height>
 <codetext>/* シンボルの検索 */
@@ -743,7 +744,7 @@ public long serch_symbol( String name, String type ){
 <codeclip>
 <ID>_C12</ID>
 <x0>60</x0>
-<y0>426</y0>
+<y0>434</y0>
 <width>421</width>
 <height>36</height>
 <codetext>/* 新しいシンボルを生成する */
@@ -754,8 +755,8 @@ public void create_symbol( String name, String type, long value ){
 </codeclip>
 <codeclip>
 <ID>_C11</ID>
-<x0>74</x0>
-<y0>73</y0>
+<x0>73</x0>
+<y0>86</y0>
 <width>425</width>
 <height>36</height>
 <codetext>/* ビット列をコピーする */
@@ -778,7 +779,7 @@ public void bit_copy( long src, int[] dst, int pos, int width ){
 <codeclip>
 <ID>_C10</ID>
 <x0>76</x0>
-<y0>37</y0>
+<y0>45</y0>
 <width>300</width>
 <height>34</height>
 <codetext>/* １行アセンブル */
@@ -1127,7 +1128,7 @@ public int asm_1line( String xbuf, int pass ){
 <state1>_SINIT</state1>
 <state2>_SINIT</state2>
 <x0>421</x0>
-<y0>154</y0>
+<y0>162</y0>
 <width>165</width>
 <height>49</height>
 <inconnectx0>0</inconnectx0>
@@ -1341,7 +1342,7 @@ int len;
 <state1>_SINIT</state1>
 <state2>_SINIT</state2>
 <x0>257</x0>
-<y0>155</y0>
+<y0>163</y0>
 <width>154</width>
 <height>49</height>
 <inconnectx0>0</inconnectx0>
@@ -1402,7 +1403,7 @@ BufferedReader din = new BufferedReader( new FileReader(infile) );
 <codeclip>
 <ID>_C25</ID>
 <x0>58</x0>
-<y0>586</y0>
+<y0>594</y0>
 <width>262</width>
 <height>36</height>
 <codetext>/* ラベルの検索 */
@@ -1421,7 +1422,7 @@ public long serch_label( String name ){
 <codeclip>
 <ID>_C26</ID>
 <x0>330</x0>
-<y0>354</y0>
+<y0>362</y0>
 <width>164</width>
 <height>36</height>
 <codetext>// レジスタの定義データ
@@ -1468,7 +1469,7 @@ String regs[] = {
 <codeclip>
 <ID>_C27</ID>
 <x0>60</x0>
-<y0>502</y0>
+<y0>510</y0>
 <width>275</width>
 <height>36</height>
 <codetext>// シンボルデーブルをセットする
@@ -1492,18 +1493,19 @@ public void set_symbols( String[] syms ){
 </codeclip>
 <codeclip>
 <ID>_C28</ID>
-<x0>75</x0>
-<y0>10</y0>
-<width>345</width>
-<height>25</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.3</codetext>
+<x0>77</x0>
+<y0>4</y0>
+<width>358</width>
+<height>37</height>
+<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.4
+//    (SIMD命令対応バージョン)</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
 <state1>_SINIT</state1>
 <state2>_SINIT</state2>
 <x0>106</x0>
-<y0>154</y0>
+<y0>162</y0>
 <width>138</width>
 <height>50</height>
 <inconnectx0>0</inconnectx0>
@@ -1572,7 +1574,7 @@ public void set_symbols( String[] syms ){
 <codeclip>
 <ID>_C32</ID>
 <x0>331</x0>
-<y0>278</y0>
+<y0>286</y0>
 <width>183</width>
 <height>33</height>
 <codetext>// 使用法を表示して終了する
@@ -1585,7 +1587,7 @@ public void print_usage(){
 <codeclip>
 <ID>_C36</ID>
 <x0>60</x0>
-<y0>463</y0>
+<y0>471</y0>
 <width>336</width>
 <height>37</height>
 <codetext>/* 新しいラベルを生成する */
@@ -1597,7 +1599,7 @@ public void create_label( String name, long value ){
 <codeclip>
 <ID>_C37</ID>
 <x0>326</x0>
-<y0>586</y0>
+<y0>594</y0>
 <width>327</width>
 <height>37</height>
 <codetext>// 16進数を表示
@@ -1615,7 +1617,7 @@ public void print_hex( long x, int wid, String tail ){
 <codeclip>
 <ID>_C38</ID>
 <x0>341</x0>
-<y0>502</y0>
+<y0>510</y0>
 <width>248</width>
 <height>33</height>
 <codetext>// 演算子であるかどうか判断する
@@ -1627,7 +1629,7 @@ public boolean is_operater( char c ){
 <codeclip>
 <ID>_C39</ID>
 <x0>785</x0>
-<y0>10</y0>
+<y0>18</y0>
 <width>187</width>
 <height>52</height>
 <codetext>class EFI64{
