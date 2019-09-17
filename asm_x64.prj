@@ -1195,7 +1195,7 @@ int len;
 
        switch(ins_type){
        case NONE:
-         if( err != 0 ) System.out.println(&quot;line:&quot;+line+&quot; *** ERROR ***\n&quot;+buf);
+         if( err != 0 ) System.err.println(&quot;line:&quot;+line+&quot; *** ERROR ***\n&quot;+buf);
          break;
 
        case NORMAL:
@@ -1385,8 +1385,8 @@ BufferedReader din = new BufferedReader( new FileReader(infile) );
            create_label( label, address );
         }
         else{
-           System.out.println(&quot;line &quot;+line+&quot;:ラベルの多重定義&quot;);
-           System.out.println(buf+&quot;\n&quot;);
+           System.err.println(&quot;line &quot;+line+&quot;:ラベルの多重定義&quot;);
+           System.err.println(buf+&quot;\n&quot;);
         }
       }
     }
@@ -1497,8 +1497,8 @@ public void set_symbols( String[] syms ){
 <y0>4</y0>
 <width>358</width>
 <height>37</height>
-<codetext>//     X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.4
-//    (SIMD命令対応バージョン)</codetext>
+<codetext>//  X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.5
+//  (エラーメッセージを標準エラー出力に出すようにした)</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
