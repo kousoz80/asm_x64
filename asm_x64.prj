@@ -273,6 +273,8 @@ int main( int argc, char** argv ){
 <ImportFiles7></ImportFiles7>
 <ProgramStartupCode7></ProgramStartupCode7>
 <NativeHelpCommand7></NativeHelpCommand7>
+<IDF_LocalVariable5>\</IDF_LocalVariable5>
+<IDF_LocalVariable7>\</IDF_LocalVariable7>
 </プロパティ>
 <codeclip>
 <ID>_CSTART</ID>
@@ -578,6 +580,10 @@ String[] ins_data = {
 &quot;ext al&quot;,&quot;0&quot;,&quot;4&quot;,&quot;72&quot;,&quot;15&quot;,&quot;182&quot;,&quot;192&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;ext ax&quot;,&quot;0&quot;,&quot;4&quot;,&quot;72&quot;,&quot;15&quot;,&quot;183&quot;,&quot;192&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;ext eax&quot;,&quot;0&quot;,&quot;2&quot;,&quot;72&quot;,&quot;152&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;cli&quot;,&quot;0&quot;,&quot;1&quot;,&quot;250&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;sti&quot;,&quot;0&quot;,&quot;1&quot;,&quot;251&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;cpuid&quot;,&quot;0&quot;,&quot;2&quot;,&quot;15&quot;,&quot;162&quot;,&quot;-1&quot;,&quot;END&quot;,
+&quot;rdtsc&quot;,&quot;0&quot;,&quot;2&quot;,&quot;15&quot;,&quot;49&quot;,&quot;-1&quot;,&quot;END&quot;,
 &quot;nop&quot;,&quot;0&quot;,&quot;1&quot;,&quot;144&quot;,&quot;-1&quot;,&quot;END&quot;
 };
 </codetext>
@@ -1497,8 +1503,9 @@ public void set_symbols( String[] syms ){
 <y0>4</y0>
 <width>358</width>
 <height>37</height>
-<codetext>//  X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.5
-//  (エラーメッセージを標準エラー出力に出すようにした)</codetext>
+<codetext>//  X  8  6  _  6  4   ア  セ  ン  ブ  ラ  ver 0.6.1
+//  (cpuid/rdtsc命令を追加)
+</codetext>
 </codeclip>
 <operation>
 <ID>_O29</ID>
